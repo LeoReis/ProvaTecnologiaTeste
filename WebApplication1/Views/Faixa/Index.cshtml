@@ -1,0 +1,29 @@
+﻿@model WebApplication1.Models.FaixaList
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+@if (Model.Faixas.Count > 0)
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Faixas</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var faixas in Model.Faixas)
+            {
+                <tr><td>@Html.ActionLink(faixas.nome, "DetalhesFaixas", new { faixas.id })</td></tr>
+
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>We don't have any customers yet.</p>
+}
+

@@ -1,0 +1,30 @@
+﻿@model WebApplication1.Models.Aluno
+@{
+    ViewBag.Title = "DetalhesAlunos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr><th><h1 style="text-align:center">Informações</h1></th></tr>
+    </thead>
+    <tbody>
+        <tr><th><h3>ID: @Model.id</h3></th></tr>
+
+        <tr><th><h3>Nome: @Model.nome</h3></th></tr>
+
+        <tr><th><h3>CPF: @Model.cpf</h3></th></tr>
+
+        <tr><th><h3>Faixa: @Model.faixa</h3></th></tr>
+
+        <tr><th><h3>Tipo: @Model.tipo</h3></th></tr>
+
+    </tbody>
+
+</table>
+
+@if (Request.UrlReferrer != null)
+{
+    <button style="background-color:white" class="bottomNav" onclick="history.go(-1); return false;" href="#">Voltar</button><br />
+}
+

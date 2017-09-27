@@ -1,0 +1,34 @@
+﻿@model WebApplication1.Models.AlunoList
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+@if (Model.Alunos.Count > 0)
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Cpf</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var alunos in Model.Alunos)
+            {
+                <tr>
+                    <td>@Html.ActionLink(alunos.nome,"DetalhesAlunos", new { alunos.id})</td>
+                    <td>@alunos.cpf</td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>We don't have any customers yet.</p>
+}
+

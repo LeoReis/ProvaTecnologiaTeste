@@ -1,0 +1,30 @@
+﻿@model WebApplication1.Models.TiposDeAssoList
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+@if (Model.TipoAssos.Count > 0)
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th><h3>Tipo de Associação</h3></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var tipoAssos in Model.TipoAssos)
+            {
+                <tr><td>@Html.ActionLink(tipoAssos.nome, "DetalhesAssos", new { tipoAssos.id })</td></tr>
+                
+
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>We don't have any customers yet.</p>
+}
+
